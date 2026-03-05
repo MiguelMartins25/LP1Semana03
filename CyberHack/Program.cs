@@ -38,8 +38,11 @@ namespace CyberHack
                 tools |= Enum.Parse<HackTool>(t);
             }
 
+            // Variável de verdadeiro/falso que vai verificar se o utilizador usa os hacking tools necessários
             bool hacked = false;
 
+            // sytema switch que verifica qual é o systema que o jogador está a tentar atacar
+            // || serve para OU, && serve para E
             switch (system)
             {
                 case SystemType.CorporateServer:
@@ -63,11 +66,12 @@ namespace CyberHack
 
                 case SystemType.MilitaryAI:
                     hacked =
-                        (tools.HasFlag(HackTool.ZeroDay) && tools.HasFlag(HackTool.AIOverride)) &&
+                        tools.HasFlag(HackTool.ZeroDay) && tools.HasFlag(HackTool.AIOverride) &&
                         (tools.HasFlag(HackTool.Backdoor) || tools.HasFlag(HackTool.BruteForce)) &&
                         (tools.HasFlag(HackTool.Phishing) || tools.HasFlag(HackTool.QuantumExploit));
                     break;
-                }
+            }
+            // Linha final que diz se os sistema foi hackeado ou não, dependente se a variavel está verdadeira(conseguio) ou falso(não conseguio)
             Console.WriteLine(hacked ? "System Hacked" : "System Secure");
         }
     }
