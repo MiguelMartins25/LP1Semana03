@@ -8,6 +8,7 @@ namespace ArrayMul
     {
         private static void Main(string[] args)
         {
+            // Código para fazer com que . focione como , nos numeros (Acompanhado por system.globalization)
             CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
             // Relacionar cada arg necessario a um float
             float arg1 = float.Parse(args[0]);
