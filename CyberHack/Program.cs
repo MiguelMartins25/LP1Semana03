@@ -12,6 +12,14 @@ namespace CyberHack
         AIOverride = 8,
         QuantumExploit = 9
     }
+
+    enum SystemType
+    {
+        CorporateServer = 0,
+        BankDatabase = 1,
+        SmartCityCore = 2,
+        MilitaryAI = 4
+    }
     public class Program
     {
         private static void Main(string[] args)
