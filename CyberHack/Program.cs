@@ -65,8 +65,8 @@ namespace CyberHack
                     hacked =
                         (tools.HasFlag(HackTool.ZeroDay) && tools.HasFlag(HackTool.AIOverride)) ||
                         ((tools.HasFlag(HackTool.Backdoor) || tools.HasFlag(HackTool.BruteForce)) &&
-                        (tools.HasFlag(HackTool.Phishing) || tools.HasFlag(HackTool.QuantumExploit)));
-                    break;
+                            (tools.HasFlag(HackTool.Phishing) || tools.HasFlag(HackTool.QuantumExploit)));
+                        break;
                 }
         }
     }
