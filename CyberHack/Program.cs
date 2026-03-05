@@ -38,6 +38,36 @@ namespace CyberHack
                 tools |= Enum.Parse<HackTool>(t);
             }
 
+            bool hacked = false;
+
+            switch (system)
+            {
+                case SystemType.CorporateServer:
+                    hacked =
+                        (tools.HasFlag(HackTool.Phishing) || tools.HasFlag(HackTool.Backdoor)) &&
+                        (tools.HasFlag(HackTool.BruteForce) || tools.HasFlag(HackTool.ZeroDay));
+                    break;
+
+                case SystemType.BankDatabase:
+                    hacked =
+                        (tools.HasFlag(HackTool.ZeroDay) && tools.HasFlag(HackTool.Backdoor)) ||
+                        (tools.HasFlag(HackTool.QuantumExploit) && tools.HasFlag(HackTool.AIOverride));
+                    break;
+
+                case SystemType.SmartCityCore:
+                    hacked =
+                        (tools.HasFlag(HackTool.AIOverride) && tools.HasFlag(HackTool.Backdoor)) ||
+                        (tools.HasFlag(HackTool.ZeroDay) && tools.HasFlag(HackTool.BruteForce)) ||
+                        (tools.HasFlag(HackTool.QuantumExploit) && tools.HasFlag(HackTool.Phishing));
+                    break;
+
+                case SystemType.MilitaryAI:
+                    hacked =
+                        (tools.HasFlag(HackTool.ZeroDay) && tools.HasFlag(HackTool.AIOverride)) ||
+                        ((tools.HasFlag(HackTool.Backdoor) || tools.HasFlag(HackTool.BruteForce)) &&
+                        (tools.HasFlag(HackTool.Phishing) || tools.HasFlag(HackTool.QuantumExploit)));
+                    break;
+                }
         }
     }
 }
