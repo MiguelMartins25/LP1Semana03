@@ -22,6 +22,7 @@ enum Perks
                 switch (c)
                 {
                     // Usando XOR para dizer se o perk foi obtido ou não
+                    // o ^= fonciona como um toggle, se a letra aparece é çigada, se aparecer outravez é desligada
                     case 'W': perks ^= Perks.WarpShift; break;
                     case 'S': perks ^= Perks.Stealth; break;
                     case 'A': perks ^= Perks.AutoHeal; break;
